@@ -1,0 +1,96 @@
+@import url(https://db.onlinewebfonts.com/c/6dd2f2510b4a00a5461b2455928209c2?family=Brandon+Grot+W01+Light);
+@import url(https://fonts.googleapis.com/css2?family=Revalia&display=swap);
+
+.parallax-wrapper {
+  scroll-timeline: --main-timeline;
+}
+
+/* .base-layer {
+  animation: background-animation linear;
+  animation-timeline: scroll(nearest inline);
+} */
+
+.base-layer::after {
+  animation: shape-animation linear;
+  animation-timeline: --main-timeline;
+}
+@layer animations {
+  /* @keyframes background-animation {
+    0% {
+      background-color: palegoldenrod;
+    }
+    100% {
+      background-color: magenta;
+    }
+  } */
+  @keyframes shape-animation {
+    0% {
+      /* transform: translate(-50%, -50%); */
+      top: 70%;
+      left: 50%;
+    }
+    10% {
+      /* transform: translate(-50%, -65%); */
+      top: 40%;
+      left: 50%;
+    }
+    100% {
+      /* transform: translate(-500%, -65%); */
+      top: 40%;
+      left: 400%;
+    }
+
+    /*0% {
+      left: 0;
+      top: 0;
+      background-color: black;
+    }
+    50% {
+      top: calc(100% - var(--elSize));
+      left: calc(50% - var(--elSize));
+      background-color: red;
+    }
+    100% {
+      left: calc(100vw - var(--elSize));
+      top: 0;
+      /~ rotate: 1800deg; ~/
+      background-color: white;
+    }*/
+  }
+}
+
+@layer page-setup {
+  :root {
+    --elSize: 50px;
+  }
+  .main {
+    height: 90vh;
+    overflow: scroll;
+    border: 1px solid;
+    margin: 5vh auto;
+  }
+  .div {
+    height: 100vh;
+    width: 100vw;
+  }
+  /* .base-layer::after {
+    content: '';
+    border: 1px solid red;
+    height: var(--elSize);
+    width: var(--elSize);
+    position: absolute;
+    border-radius: 20px;
+    corner-shape: superellipse(-4);
+  } */
+}
+
+@layer no-support {
+  @supports not (scroll-timeline: --main-timeline) {
+    body::before {
+      content: "Your browser doesn't support scroll-driven animations.";
+      background-color: wheat;
+      display: block;
+      text-align: center;
+    }
+  }
+}

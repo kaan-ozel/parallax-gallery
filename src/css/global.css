@@ -1,0 +1,29 @@
+/* ----- GLOBAL VARIABLES ----- */
+:root {
+  --primary-color: #555;
+  --secondary-color: hsl(28, 80%, 52%);
+  --shadow-color: rgba(230, 126, 34, 0.9);
+  --main-bg-color: #fefdf7;
+  --tagline-color: #506e1c;
+  --perspective: 1000px;
+}
+
+/* ----- GLOBAL RESET ----- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ----- GLOBAL BODY STYLES ----- */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--main-bg-color);
+}
+
+#root {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}

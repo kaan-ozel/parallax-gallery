@@ -1,0 +1,85 @@
+/* 1. **Simple HTML + pseudo-elements** */
+/* 2. **Single element (one div only)** */
+/* 3. **Using `clip-path`** */
+/* 4. **Using radial/linear gradients** */
+
+---
+
+/* # ✅ **1. With pseudo-elements (`::before` + `::after`)** */
+
+/* <div class="shape"></div> */
+
+.shape {
+  width: 300px;
+  height: 200px;
+  background: #cf5c66; /* red background */
+  position: relative;
+}
+
+.shape::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 20px;
+  background: #f7f5b2; /* yellow bar */
+  transform: translateY(-50%);
+}
+
+.shape::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 80px);
+  left: 50%;
+  width: 40px;
+  height: 80px;
+  background: #f7f5b2; /* pillar */
+  transform: translateX(-50%);
+  border-radius: 20px 20px 0 0; /* semicircle top */
+}
+
+/* # ✅ **2. Single DIV using multiple backgrounds** */
+
+/* <div class="shape2"></div> */
+
+.shape2 {
+  width: 300px;
+  height: 200px;
+  background:
+    /* semicircle */ radial-gradient(circle at center top, #f7f5b2 50%, transparent 51%) no-repeat center 40% / 40px 40px,
+    /* pillar */ linear-gradient(#f7f5b2, #f7f5b2) no-repeat center 40% / 40px 80px, /* horizontal bar */ linear-gradient(#f7f5b2, #f7f5b2) no-repeat center 50% / 100% 20px, /* background */ #cf5c66;
+}
+
+/* # ✅ **3. Using `clip-path`** */
+
+/* <div class="shape3"></div> */
+
+.shape3 {
+  width: 300px;
+  height: 200px;
+  background: #cf5c66;
+  position: relative;
+}
+
+.shape3::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #f7f5b2;
+  /* outline shape of bar + pillar + semicircle */
+  clip-path: polygon(0% 48%, 100% 48%, 100% 52%, 0% 52%, /* bar */ 49% 52%, 49% 20%, /* pillar sides */ 50% 10%, /* top center of semicircle */ 51% 20%, 51% 52% /* down pillar */);
+}
+
+/* # ✅ **4. Using a single element + gradients** */
+
+/* <div class="shape4"></div> */
+
+.shape4 {
+  width: 300px;
+  height: 200px;
+  background:
+    /* semicircle top */ radial-gradient(circle at center 40%, #f7f5b2 0 50%, transparent 51%) no-repeat center 30% / 40px 40px,
+    /* vertical pillar */ linear-gradient(#f7f5b2, #f7f5b2) no-repeat center 50% / 40px 100px, /* horizontal bar */ linear-gradient(#f7f5b2, #f7f5b2) no-repeat center / 100% 20px,
+    /* red background */ #cf5c66;
+}
