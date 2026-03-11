@@ -52,7 +52,6 @@ export default function Parallax() {
         <div className="parallax-group" id="group-3">
           <div className="parallax-layer image-layer mid-layer"></div>
           <div className="parallax-layer image-layer bottom-layer"></div>
-          {/* <div className="parallax-layer outro-layer"></div> */}
         </div>
         <div className=" parallax-group outro" id="outro">
           <div className="outro-overlay">
