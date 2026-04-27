@@ -372,7 +372,7 @@
 
 /* #region - DESKTOP - TO BE IMPLEMENTED */
 
-@media (min-width: 1024x) {
+@media (min-width: 1024px) {
   .nav-icon {
     height: clamp(2rem, 4vw, 5rem);
   }
